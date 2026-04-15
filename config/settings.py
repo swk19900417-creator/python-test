@@ -13,8 +13,8 @@ class Settings(BaseSettings):
     debug: bool = True
     secret_key: str = 'secret'
 
-    # 数据库配置 - 添加了类型注解
-    db_url: str = 'mysql://root:hlsfxl123@8.155.43.9:3306/fastapi_db3'
+    # 数据库配置 - PostgreSQL
+    db_url: str = 'postgres://root:hlsfxl123@8.155.43.9:5432/fastapi_db3'
 
     # 使用 ConfigDict 替代 class Config
     # 使用绝对路径确保无论从哪个目录运行都能正确找到 .env 文件

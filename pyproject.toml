@@ -6,8 +6,7 @@ readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
     "aerich>=0.9.2",
-    "aiomysql>=0.3.2",
-    "asyncmy>=0.2.10",
+    "asyncpg>=0.30.0",
     "configdict>=2.13.1",
     "fastapi>=0.121.3",
     "pydantic-settings>=2.12.0",
