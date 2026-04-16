@@ -8,7 +8,7 @@ from contextlib import asynccontextmanager
 
 
 async def init_db():
-    await Tortoise.init(db_url=settings.db_url, modules={"models": ["app.infrastructure.database.orm_models"]})
+    await Tortoise.init(db_url=settings.get_db_url, modules={"models": ["app.infrastructure.database.orm_models"]})
     await Tortoise.generate_schemas()
 
 

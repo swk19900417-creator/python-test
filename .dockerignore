@@ -1,0 +1,51 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+*.egg
+dist/
+build/
+
+# 虚拟环境
+.venv/
+venv/
+ENV/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Git
+.git/
+.gitignore
+
+# 环境配置 (敏感信息)
+.env
+.env.local
+.env.*.local
+
+# 测试
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# 文档和其他
+*.md
+*.rst
+docs/
+LICENSE
+
+# 规范工作流
+.spec-workflow/
+
+# 其他
+*.log
+*.tmp
+.DS_Store
+Thumbs.db

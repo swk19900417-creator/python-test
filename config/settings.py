@@ -7,14 +7,21 @@ from pydantic_settings import BaseSettings
 from pydantic import ConfigDict
 
 class Settings(BaseSettings):
-    '''应用配置类'''
-    app_name: str = 'FastAPI  DDD'
+    '''应用配置类 - 所有配置项可通过环境变量覆盖'''
+    app_name: str = 'FastAPI DDD'
     app_version: str = '0.1.0'
-    debug: bool = True
-    secret_key: str = 'secret'
+    debug: bool = False  # 生产环境默认关闭
+    secret_key: str = 'change-me-in-production'
 
-    # 数据库配置 - PostgreSQL
-    db_url: str = 'postgres://root:hlsfxl123@8.155.43.9:5432/fastapi_db3'
+    # 数据库配置 - PostgreSQL (Railway 会自动设置 DATABASE_URL)
+    db_url: str = 'postgres://localhost:5432/fastapi_db'
+    # 兼容 Railway 的 DATABASE_URL 环境变量
+    database_url: str | None = None
+
+    @property
+    def get_db_url(self) -> str:
+        """优先使用 DATABASE_URL (Railway 自动设置)"""
+        return self.database_url or self.db_url
 
     # 使用 ConfigDict 替代 class Config
     # 使用绝对路径确保无论从哪个目录运行都能正确找到 .env 文件
